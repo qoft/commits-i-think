@@ -21,7 +21,7 @@ def create_commit():
     global i
     while True:
         system("git pull -X theirs")
-        for i in range(random.randint(1, MAX_COMMITS)):
+        for i in range(100):
             with open(OUTPUT_FILE, "w") as f:
                 f.write(str(datetime.now()))
             system(f"git add {OUTPUT_FILE}")
