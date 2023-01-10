@@ -25,14 +25,16 @@ i = 0
 def create_commit():
     global i
     while True:
-        with open(OUTPUT_FILE, "w") as f:
-            f.write(str(datetime.now()))
-        system(f"git add {OUTPUT_FILE}")
-        system(f"git commit -m \"Update {OUTPUT_FILE}\"")
-        i += 1
-        if i > 100:
-            system("git pull")
-            system("git push")
-            i = 0
+        system("git pull")
+        while True:
+            with open(OUTPUT_FILE, "w") as f:
+                f.write(str(datetime.now()))
+            system(f"git add {OUTPUT_FILE}")
+            system(f"git commit -m \"Update {OUTPUT_FILE}\"")
+            i += 1
+            if i > 100:
+                system("git push")
+                i = 0
+                break
 
 create_commit()
