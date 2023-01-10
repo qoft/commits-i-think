@@ -31,6 +31,7 @@ def create_commit():
         system(f"git commit -m \"Update {OUTPUT_FILE}\"")
         i += 1
         if i > 100:
+            system("git pull")
             system("git push")
             i = 0
 
