@@ -1,9 +1,9 @@
-import random
-OUTPUT_FILE = "commit_bot.txt"
-
+import random, multiprocessing, os
+OUTPUT_FILE = f"data/output_{random.randint(0, 100)}.txt"
+if not os.path.exists("data"):
+    os.makedirs("data")
 from os import system
 from datetime import datetime 
-
 
 i = 0
 def create_commit():
@@ -18,4 +18,7 @@ def create_commit():
         system("git pull -X theirs")
         system("git push")
 
-create_commit()
+if __name__ == "__main__":
+    for i in range(5):
+        multiprocessing.Process(target=create_commit).start()
+        
