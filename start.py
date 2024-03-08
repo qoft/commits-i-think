@@ -1,4 +1,4 @@
 from os import system
 system("git pull -X theirs")
-system("git clone https://github.com/qoft/commits-i-think.git")
-system("adder.py")
+system("git clone --depth 1 https://github.com/qoft/commits-i-think.git ")
+system("python3 adder.py")
