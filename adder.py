@@ -12,7 +12,7 @@ def create_commit():
         system("git pull -X theirs")
         system("rm -rf index.lock")
         system("rm -rf HEAD.lock")
-        for i in range(10000):
+        for i in range(1000):
             with open(OUTPUT_FILE, "w") as f:
                 f.write(str(datetime.now()))
             system(f"git add {OUTPUT_FILE}")
